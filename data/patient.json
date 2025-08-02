@@ -1,0 +1,24 @@
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "family": "Smith",
+      "given": ["John"]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1970-01-01"
+}
+
+// - - -
+
+curl -X POST "http://localhost:8080/fhir/Patient" \
+  -H "Content-Type: application/fhir+json" \
+  -d '{
+    "resourceType": "Patient",
+    "name": [
+      {"family": "Smith", "given": ["John"]}
+    ],
+    "gender": "male",
+    "birthDate": "1970-01-01"
+  }'

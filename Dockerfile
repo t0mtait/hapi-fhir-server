@@ -1,0 +1,2 @@
+FROM hapiproject/hapi:latest
+
