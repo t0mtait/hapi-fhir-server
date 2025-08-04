@@ -1,48 +1,42 @@
 # HAPI-FHIR Server
-Welcome to my implementation of a HAPI-FHIR Server for personal interest, learning, and testing!
-## Local setup directions
+Welcome to my implementation of a HAPI-FHIR Server
+## Local setup
 
-1. Build the image
-```
-docker build -t hapi-fhir-server .
-```
+Create a `hapi.postgres.data` folder in the root project directory. <br>
+This directory is mounted into the postgres container and will store your fhir data even between container restarts.
 
-2. Run the image on a container
+To run the images:
 ```
-docker run -p 8080:8080 my-hapi-fhir
+docker-compose up --build
 ```
 
-3. View the ui in the browser
-navigate to `http://localhost:8080/fhir`
+View the UI in-browser by navigating to `http://localhost:8080/fhir`
 
 ---
 
-## POSTING a patient to the server
+Dummy patient fhir data if you'd like to test the Patient POST request:
 
 ```
-curl -X POST "http://localhost:8080/fhir/Patient" \
-  -H "Content-Type: application/fhir+json" \
-  -d '{
-    "resourceType": "Patient",
-    "name": [
-      {"family": "Smith", "given": ["John"]}
-    ],
-    "gender": "male",
-    "birthDate": "1970-01-01"
-  }'
+{
+  "resourceType": "Patient",
+  "name": [
+    {
+      "use": "official",
+      "family": "Doe",
+      "given": ["John"]
+    }
+  ],
+  "gender": "male",
+  "birthDate": "1980-01-01",
+  "address": [
+    {
+      "use": "home",
+      "line": ["123 Main St"],
+      "city": "Exampletown",
+      "state": "EX",
+      "postalCode": "12345",
+      "country": "USA"
+    }
+  ]
+}
 ```
-
----
-
-## GETTING patients from the server
-
-```
-curl "http://localhost:8080/fhir/Patient"
-```
-to retrieve a list of patients, or:
-```
-curl "http://localhost:8080/fhir/Patient/1234"
-```
-to retrieve patient with id = 1234
-
---- 
