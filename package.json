@@ -1,0 +1,23 @@
+{
+  "name": "hapi-fhir-server",
+  "version": "1.0.0",
+  "description": "Welcome to my implementation of a HAPI-FHIR Server ## Local setup",
+  "homepage": "https://github.com/t0mtait/hapi-fhir-server#readme",
+  "bugs": {
+    "url": "https://github.com/t0mtait/hapi-fhir-server/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/t0mtait/hapi-fhir-server.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "semantic-release": "^24.2.7"
+  }
+}
